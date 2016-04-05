@@ -10,13 +10,16 @@ using namespace std;
 
 // Declare 'tm' structure 'my_time' and use it to set constant intervals for the current year, month, and date.
 // This will be used later in the 'add_record' function for input validation. 
- /*tm my_time;
- const int curyear = my_time.tm_year;
- const int curmon = (my_time.tm_mon + 1);
- const int curday = my_time.tm_mday;*/
+ /*
+ const int curyear = 16;
+ const int curmon = 04;
+ const int curday = 05;*/
+// The following code allows the compiler to utilize current date & time without specifying integers, but it 
+// requires the user to set the SDL Checks option to "No". I've included some lines of code to use in lieu of
+// the time/date variables above this paragraph. Simply comment out the next 5 lines of code and uncomment the
+// three lines of code before this set of notes if you don't wish to do that. 
  time_t t = time(NULL);
  tm* timePtr = localtime(&t);
-
  const int curyear = ((timePtr->tm_year)%100);
  const int curmon = ((timePtr->tm_mon)+1);
  const int curday = timePtr->tm_mday;
